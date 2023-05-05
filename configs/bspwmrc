@@ -3,6 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --set-scaled --save debian-bspwm/bg.jpg &
 nm-applet &
+blueman-applet &
 picom -f &
 $HOME/.config/polybar/launch.sh
 
