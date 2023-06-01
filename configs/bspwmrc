@@ -2,9 +2,10 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --set-scaled --save debian-bspwm/bg.jpg &
+xsetroot -cursor_name left_ptr &
 nm-applet &
 blueman-applet &
-picom -f &
+picom &
 $HOME/.config/polybar/launch.sh
 
 bspc monitor -d 1 2 3 4 5

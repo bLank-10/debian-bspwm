@@ -1,8 +1,8 @@
 
 # debian-bspwm
 
-Use the following iso:
-https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/firmware-11.7.0-amd64-netinst.iso 
+Use the following iso: firmware-11.7.0-amd64-netinst.iso
+https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/
 
 ## Wifi setup
 
@@ -34,8 +34,7 @@ sudo chmod +x install.sh
 
 ## After installation
 
-use lxappearance to change icon -> papirus-icon-theme  & theme -> dracula
-
+use lxappearance to change icon -> papirus-icon-theme & theme -> dracula
 ### For virtual box resolution
 
 ```bash
