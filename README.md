@@ -1,8 +1,8 @@
 
 # debian-bspwm
 
-Use the following iso: firmware-11.7.0-amd64-netinst.iso
-https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/
+Use the following iso: debian-testing-amd64-netinst.iso
+https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 
 ## Wifi setup
 

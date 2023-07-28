@@ -74,7 +74,7 @@ sudo apt update
 
 
 # proton
-sudo apt install gnome-shell-extension-appindicator -y
+# sudo apt install gnome-shell-extension-appindicator -y
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
 echo "c409c819eed60985273e94e575fd5dfd8dd34baef3764fc7356b0f23e25a372c  protonvpn-stable-release_1.0.3_all.deb" | sha256sum --check -
 sudo dpkg -i protonvpn-stable-release_1.0.3_all.deb
@@ -87,6 +87,9 @@ sudo cp /home/$username/debian-bspwm/configs/40-libinput.conf /etc/X11/xorg.conf
 
 # never sleep
 sudo cp /home/$username/debian-bspwm/configs/logind.conf /etc/systemd/
+
+# startx
+cp /home/$username/debian-bspwm/configs/.xinitrc /home/$username/
 
 echo "terminal settings .bashrc"
 printf "\e[1;32mDone! Now if you didn't encountered any error you can reboot.\e[0m"
