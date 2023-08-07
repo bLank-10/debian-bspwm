@@ -4,7 +4,7 @@ username=$(id -u -n 1000)
 sudo apt update && sudo apt upgrade -y
 
 # Bspwm, sxhkd and polybar deps
-sudo apt install build-essential gcc g++ make libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-cursor-dev libpulse-dev libnl-genl-3-dev -y
+sudo apt install build-essential gcc g++ make libxrandr-dev libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-cursor-dev libpulse-dev libnl-genl-3-dev -y
 sudo apt install wget kitty nitrogen picom zsh rofi network-manager network-manager-gnome pulseaudio nautilus lxappearance papirus-icon-theme blueman xinit -y
 
 
@@ -91,6 +91,10 @@ sudo cp /home/$username/debian-bspwm/configs/logind.conf /etc/systemd/
 cp /home/$username/debian-bspwm/configs/.xinitrc /home/$username/
 
 
+# sreenlock (slock)
+git clone git://git.suckless.org/slock
+cd slock
+sudo make clean install
 
 printf "\e[1;32mFor zsh config run the below command .\e[0m\n"
 
