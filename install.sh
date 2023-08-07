@@ -5,7 +5,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Bspwm, sxhkd and polybar deps
 sudo apt install build-essential gcc g++ make libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-cursor-dev libpulse-dev libnl-genl-3-dev -y
-sudo apt install wget kitty nitrogen picom dmenu pulseaudio nautilus lxappearance papirus-icon-theme blueman xinit -y
+sudo apt install wget kitty nitrogen picom zsh rofi network-manager network-manager-gnome pulseaudio nautilus lxappearance papirus-icon-theme blueman xinit -y
 
 
 #Brave Stable
@@ -49,11 +49,10 @@ cp configs/polybar/launch.sh /home/$username/.config/polybar/
 sudo chmod +x /home/$username/.config/polybar/launch.sh
 
 
-# fonts
-mkdir -p /home/$username/.local/share/fonts
-cp fonts/fantasque_sans_mono.ttf /home/$username/.local/share/fonts/
-cp fonts/material_design_iconic_font.ttf /home/$username/.local/share/fonts/
-cp fonts/FantasqueSansMNerdFontPropo-Regular.ttf /home/$username/.local/share/fonts/
+# fonts & bin
+mkdir -p /home/$username/.local/share
+cp -r fonts /home/$username/.local/share/
+cp -r bin /home/$username/.local/
 
 # theme
 sudo cp -r /home/$username/debian-bspwm/dracula /usr/share/themes/
@@ -67,10 +66,10 @@ sudo cp /home/$username/debian-bspwm/configs/nanorc /etc/
 
 
 # chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt install -f -y
-sudo apt update
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo dpkg -i google-chrome-stable_current_amd64.deb
+# sudo apt install -f -y
+# sudo apt update
 
 
 # proton
@@ -91,5 +90,16 @@ sudo cp /home/$username/debian-bspwm/configs/logind.conf /etc/systemd/
 # startx
 cp /home/$username/debian-bspwm/configs/.xinitrc /home/$username/
 
-echo "terminal settings .bashrc"
-printf "\e[1;32mDone! Now if you didn't encountered any error you can reboot.\e[0m"
+
+
+printf "\e[1;32mFor zsh config run the below command .\e[0m\n"
+
+cat <<'END_CAT'
+if command -v curl >/dev/null 2>&1; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+else
+  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+fi
+END_CAT
+
+printf "\e[1;32mDone! Now if you didn't encountered any error you can reboot.\e[0m\n"

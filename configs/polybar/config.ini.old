@@ -1,0 +1,210 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #1F1F1F
+foreground = #FFFFFF
+foreground-alt = #8F8F8F
+module-fg = #1F1F1F
+primary = #0096FF
+alert = #A54242
+disabled = #707880
+background-alt = #373B41
+
+
+[bar/bar1]
+width = 100%
+height = 31
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3pt
+
+font-0 = "Fantasque Sans Mono:pixelsize=12;3"
+font-1 = "Material\\-Design\\-Iconic\\-Font:size=13;4"
+font-2 = "FantasqueSansMNerdFontPropo-Regular:pixelsize=20;3"
+
+padding = 0
+module-margin = 1
+
+separator = |
+separator-foreground = ${colors.disabled}
+
+modules-left = menu xworkspaces xwindow
+modules-right = filesystem memory pulseaudio battery date powermenu 
+
+cursor-click = 
+cursor-scroll = 
+
+enable-ipc = true
+
+wm-restack = bspwm
+tray-position = right 
+
+
+[module/xworkspaces]
+type = internal/xworkspaces
+label-active = %name%
+label-active-background = ${colors.background-alt}
+label-active-underline= ${colors.primary}
+label-active-padding = 1
+label-occupied = %name%
+label-occupied-padding = 1
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+label-empty = %name%
+label-empty-foreground = ${colors.disabled}
+label-empty-padding = 1
+
+
+[module/memory]
+type = internal/memory
+format = <label>
+format-prefix = 
+label = " %mb_used%"
+
+
+[module/date]
+type = internal/date
+time = " %H:%M"
+time-alt = " %a, %d %b %Y"
+format = <label>
+label = %time%
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:20:...%
+
+
+[module/powermenu]
+type = custom/menu
+expand-right = true
+
+menu-0-0 = reboot
+menu-0-0-exec = #powermenu.open.1
+menu-0-1 = shutdown
+menu-0-1-exec = #powermenu.open.2
+
+menu-1-0 = back
+menu-1-0-exec = #powermenu.open.0
+menu-1-1 = reboot
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = shutdown
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = back
+menu-2-1-exec = #powermenu.open.0
+
+format = <label-toggle> <menu>
+format-foreground = ${colors.alert}
+format-padding = 1
+
+label-open = 
+label-close = 
+label-separator = " | "
+
+
+[module/menu]
+type = custom/menu
+expand-right = true
+
+menu-0-0 = Menu
+menu-0-0-exec = dmenu_run &
+menu-0-1 = Files
+menu-0-1-exec = nautilus &
+menu-0-2 = Terminal
+menu-0-2-exec = kitty &
+menu-0-3 = Browser
+menu-0-3-exec = google-chrome &
+
+format = <label-toggle> <menu>
+format-background = ${colors.primary}
+format-foreground = ${colors.module-fg}
+format-padding = 1
+label-open = 
+label-close = 
+label-separator = " | "
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+master-mixer = Master
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
+format-muted-prefix = 
+label-volume = %percentage%%
+label-muted = " Muted"
+label-muted-foreground = ${colors.foreground-alt}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+click-right = pactl -- set-sink-volume 0 +10%
+
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT1
+adapter = ACAD
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <label-full>
+format-full-prefix = 
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = " Full"
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-framerate = 750
+
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+fixed-values = true
+format-mounted = <label-mounted>
+format-mounted-prefix = 
+format-unmounted = <label-unmounted>
+format-unmounted-prefix = 
+label-mounted = " %free%"
+label-unmounted = " %mountpoint%: not mounted"
+
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+
