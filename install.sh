@@ -5,7 +5,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Bspwm, sxhkd and polybar deps
 sudo apt install build-essential gcc g++ make libxrandr-dev libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-cursor-dev libpulse-dev libnl-genl-3-dev -y
-sudo apt install wget kitty nitrogen picom zsh rofi network-manager network-manager-gnome pulseaudio nautilus lxappearance papirus-icon-theme blueman xinit -y
+sudo apt install wget kitty nitrogen picom scrot zsh rofi network-manager network-manager-gnome pulseaudio nautilus lxappearance papirus-icon-theme blueman xinit -y
 
 
 #Brave Stable
@@ -52,6 +52,8 @@ sudo chmod +x /home/$username/.config/polybar/launch.sh
 # rofi
 cp -r /home/$username/debian-bspwm/configs/rofi /home/$username/.config/
 
+# screenshot
+mkdir -p /home/$username/Pictures
 
 # fonts & bin
 mkdir -p /home/$username/.local/share

@@ -10,6 +10,15 @@ super + Return
 super + @space
 	rofi -terminal kitty -show drun -icon-theme "Papirus" -show-icons
 
+# slock
+super + x
+	slock
+
+# sreenshot
+Print
+	screenshot
+
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
