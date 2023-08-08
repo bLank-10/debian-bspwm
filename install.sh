@@ -49,6 +49,10 @@ cp configs/polybar/launch.sh /home/$username/.config/polybar/
 sudo chmod +x /home/$username/.config/polybar/launch.sh
 
 
+# rofi
+cp -r /home/$username/debian-bspwm/configs/rofi /home/$username/.config/
+
+
 # fonts & bin
 mkdir -p /home/$username/.local/share
 cp -r fonts /home/$username/.local/share/
