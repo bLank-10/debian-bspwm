@@ -10,6 +10,10 @@ super + Return
 super + @space
 	rofi -terminal kitty -show drun -icon-theme "Papirus" -show-icons
 
+# all software
+Menu
+	rofi -show run
+
 # slock
 super + x
 	slock

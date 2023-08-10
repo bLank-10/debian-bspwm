@@ -59,6 +59,9 @@ mkdir -p /home/$username/Pictures
 mkdir -p /home/$username/.local/share
 cp -r fonts /home/$username/.local/share/
 cp -r bin /home/$username/.local/
+wget https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf
+sudo cp Downloads/NotoColorEmoji.ttf /usr/share/fonts/
+
 
 # theme
 sudo cp -r /home/$username/debian-bspwm/dracula /usr/share/themes/
@@ -102,7 +105,8 @@ git clone git://git.suckless.org/slock
 cd slock
 sudo make clean install
 
-printf "\e[1;32mFor zsh config run the below command .\e[0m\n"
+
+printf "\e[1;32mFor zsh config run the below command .\e[0m\n\n"
 
 cat <<'END_CAT'
 if command -v curl >/dev/null 2>&1; then
@@ -112,4 +116,4 @@ else
 fi
 END_CAT
 
-printf "\e[1;32mDone! Now if you didn't encountered any error you can reboot.\e[0m\n"
+printf "\n\n\e[1;32mDone! Now if you didn't encountered any error you can reboot.\e[0m\n"
