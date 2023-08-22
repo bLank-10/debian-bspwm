@@ -60,7 +60,7 @@ mkdir -p /home/$username/.local/share
 cp -r fonts /home/$username/.local/share/
 cp -r bin /home/$username/.local/
 wget https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf
-sudo cp Downloads/NotoColorEmoji.ttf /usr/share/fonts/
+sudo cp NotoColorEmoji.ttf /usr/share/fonts/
 
 
 # theme
@@ -83,6 +83,15 @@ sudo cp /home/$username/debian-bspwm/configs/nanorc /etc/
 
 # proton
 # sudo apt install gnome-shell-extension-appindicator -y
+
+# gnome-keyring-daemon
+# export $(gnome-settings-daemon --start)
+# gnome-keyring-daemon --start
+# systemctl --user import-environment DISPLAY XAUTHORITY
+# dbus-update-activation-environment DISPLAY XAUTHORITY
+# protonvpn-cli login user-name
+# protonvpn-cli c
+
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
 echo "c409c819eed60985273e94e575fd5dfd8dd34baef3764fc7356b0f23e25a372c  protonvpn-stable-release_1.0.3_all.deb" | sha256sum --check -
 sudo dpkg -i protonvpn-stable-release_1.0.3_all.deb
