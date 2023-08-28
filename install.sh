@@ -93,6 +93,14 @@ git clone git://git.suckless.org/slock
 cd slock
 sudo make clean install
 
+# neovim
+sudo apt-get install ninja-build gettext cmake unzip curl npm -y
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+
 printf "\e[1;32mFor zsh config run the below command .\e[0m\n\n"
 
 cat <<'END_CAT'
