@@ -64,7 +64,6 @@ sudo cp -r /home/$username/debian-bspwm/dracula /usr/share/themes/
 mkdir -p /home/$username/.config/kitty
 cp configs/kitty.conf /home/$username/.config/kitty/
 sudo chmod +x /home/$username/.config/kitty/kitty.conf
-sudo cp /home/$username/debian-bspwm/configs/nanorc /etc/
 
 # chrome
 # wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -86,7 +85,7 @@ sudo cp /home/$username/debian-bspwm/configs/40-libinput.conf /etc/X11/xorg.conf
 sudo cp /home/$username/debian-bspwm/configs/logind.conf /etc/systemd/
 
 # startx
-cp /home/$username/debian-bspwm/configs/.xinitrc /home/$username/
+echo "dbus-launch bspwm" >.xinitrc
 
 # sreenlock (slock)
 git clone git://git.suckless.org/slock
