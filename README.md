@@ -1,8 +1,32 @@
 
 # debian-bspwm
 
-Use the following iso: debian-testing-amd64-netinst.iso
-https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
+Use the following iso: debian-amd64-netinst.iso
+
+### Change To Testing
+```bash
+sudo nano /etc/apt/sources.list
+```
+Replace with this
+```bash
+deb http://deb.debian.org/debian/ testing main non-free-firmware
+deb-src http://deb.debian.org/debian/ testing main non-free-firmware
+
+deb http://security.debian.org/debian-security testing-security main non-free-firmware
+deb-src http://security.debian.org/debian-security testing-security main non-free-firmware
+
+deb http://deb.debian.org/debian/ testing-updates main non-free-firmware
+deb-src http://deb.debian.org/debian/ testing-updates main non-free-firmware
+```
+Now Run
+```bash
+sudo apt-get testing-update
+sudo apt update
+sudo apt upgrade
+sudo apt full-upgrade
+sudo apt dist-upgrade
+```
+Then Reboot
 
 ## Wifi setup
 
