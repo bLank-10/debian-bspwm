@@ -1,7 +1,7 @@
 
 # debian-bspwm
 
-Use the following iso: debian-amd64-netinst.iso
+Use the following iso: https://www.debian.org/download 
 
 ### Change To Testing
 ```bash
@@ -20,7 +20,7 @@ deb-src http://deb.debian.org/debian/ testing-updates main non-free-firmware
 ```
 Now Run
 ```bash
-sudo apt-get testing-update
+sudo apt-get update
 sudo apt update
 sudo apt upgrade
 sudo apt full-upgrade
@@ -44,6 +44,14 @@ sudo apt install network-manager network-manager-gnome
 sudo reboot
 ```
 Now use nmtui to connect to wifi
+
+
+ELSE
+
+```bash
+sudo nano /etc/network/interfaces
+```
+Then comment all or the part with wlan interface
 
 
 ## Installation
