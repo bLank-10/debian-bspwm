@@ -5,7 +5,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Bspwm, sxhkd and polybar deps
 sudo apt install build-essential gcc g++ make libxrandr-dev libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-cursor-dev libpulse-dev libnl-genl-3-dev -y
-sudo apt install wget kitty nitrogen picom scrot zsh rofi network-manager network-manager-gnome pulseaudio nautilus lxappearance papirus-icon-theme blueman xinit -y
+sudo apt install wget kitty nitrogen picom scrot zsh rofi network-manager network-manager-gnome pulseaudio nautilus lxappearance papirus-icon-theme blueman dbus-x11 xinit -y
 
 
 #Brave Stable
@@ -100,7 +100,7 @@ sudo cp /home/$username/debian-bspwm/configs/40-libinput.conf /etc/X11/xorg.conf
 sudo cp /home/$username/debian-bspwm/configs/logind.conf /etc/systemd/
 
 # startx
-echo "dbus-launch bspwm" >> .xinitrc
+cp /home/$username/debian-bspwm/configs/.xinitrc /home/$username/
 
 
 # sreenlock (slock)
