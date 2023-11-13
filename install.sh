@@ -111,14 +111,10 @@ cd slock
 sudo make clean install
 
 
-printf "\e[1;32mFor zsh config run the below command .\e[0m\n\n"
-
-cat <<'END_CAT'
 if command -v curl >/dev/null 2>&1; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 else
   sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 fi
-END_CAT
 
 printf "\n\n\e[1;32mDone! Now if you didn't encountered any error you can reboot.\e[0m\n"
