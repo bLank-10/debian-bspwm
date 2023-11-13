@@ -30,28 +30,12 @@ Then Reboot
 
 ## Wifi setup
 
-use ip a to find your wlan interface
-
-```bash
-wpa_passphrase wifi-name wifi-password | sudo tee /etc/wpa_supplicant.conf
-sudo wpa_supplicant -c /etc/wpa_supplicant.conf -i wlp6s0 -B
-sudo dhclient wlp6s0
-```
-
-change from wpa supplicant to nmtui
-```bash
-sudo apt install network-manager network-manager-gnome
-sudo reboot
-```
-Now use nmtui to connect to wifi
-
-
-ELSE
-
 ```bash
 sudo nano /etc/network/interfaces
 ```
-Then comment all or the part with wlan interface
+Then comment all 
+
+Now use nmtui to connect to wifi
 
 
 ## Installation
@@ -66,7 +50,8 @@ sudo chmod +x install.sh
 
 ## After installation
 
-use lxappearance to change icon -> papirus-icon-theme & theme -> dracula
+use lxappearance to change icon -> papirus-dark & theme -> dracula
+
 ### For virtual box resolution
 
 ```bash
