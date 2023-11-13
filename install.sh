@@ -64,8 +64,10 @@ sudo cp NotoColorEmoji.ttf /usr/share/fonts/
 
 
 # theme
-sudo cp -r /home/$username/debian-bspwm/dracula /usr/share/themes/
-
+wget -O Dracula.zip 'https://github.com/dracula/gtk/archive/master.zip'
+sudo unzip Dracula.zip -d /usr/share/themes/
+# gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
+# gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
 
 # kitty & terminal
 mkdir -p /home/$username/.config/kitty
