@@ -202,9 +202,9 @@ set stateflags
 
 ## Paint the interface elements of nano.  These are examples;
 ## by default there are no colors, except for errorcolor.
-set titlecolor bold,lightwhite,blue
-set statuscolor bold,lightwhite,green
-set errorcolor bold,lightwhite,red
+set titlecolor bold,black,blue
+set statuscolor bold,black,green
+set errorcolor bold,black,red
 set selectedcolor lightwhite,magenta
 set stripecolor ,yellow
 set scrollercolor white
