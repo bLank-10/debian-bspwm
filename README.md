@@ -50,7 +50,7 @@ sudo chmod +x install.sh
 
 ## After installation
 
-use lxappearance to change icon -> papirus-dark & theme -> dracula
+use lxappearance to change icon -> papirus-Dark & theme -> Dracula
 
 ### For virtual box resolution
 

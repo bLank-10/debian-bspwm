@@ -55,6 +55,7 @@ cp -r /home/$username/debian-bspwm/configs/rofi /home/$username/.config/
 # screenshot
 mkdir -p /home/$username/Pictures
 
+
 # fonts & bin
 mkdir -p /home/$username/.local/share
 cp -r fonts /home/$username/.local/share/
@@ -64,10 +65,18 @@ sudo cp NotoColorEmoji.ttf /usr/share/fonts/
 
 
 # theme
-wget -O Dracula.zip 'https://github.com/dracula/gtk/archive/master.zip'
-sudo unzip Dracula.zip -d /usr/share/themes/
+wget https://github.com/dracula/gtk/archive/master.zip
+sudo apt install unzip -y
+unzip master.zip
+sudo mkdir /usr/share/themes/Dracula
+sudo cp -r gtk-master/* /usr/share/themes/Dracula/
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/Cornul11/GTK4ThemeAdapter/main/gtk4_theme_adapter.py)"
+cp -r gtk-master/gtk-4.0 .config/
+# cp .config/gtk-3.0/settings.ini .config/gtk-4.0/ 
+rm -fr master.zip gtk-master
 # gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
 # gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+
 
 # kitty & terminal
 mkdir -p /home/$username/.config/kitty
@@ -86,6 +95,7 @@ sudo apt install ./vscode.deb
 # sudo dpkg -i google-chrome-stable_current_amd64.deb
 # sudo apt install -f -y
 # sudo apt update
+
 
 # protonvpn
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
@@ -111,6 +121,7 @@ cd slock
 sudo make clean install
 
 
+# zsh config
 if command -v curl >/dev/null 2>&1; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 else
