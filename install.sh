@@ -4,7 +4,7 @@ username=$(id -u -n 1000)
 sudo apt update && sudo apt upgrade -y
 
 # Bspwm, sxhkd and polybar deps
-sudo apt install build-essential gcc g++ make libxrandr-dev libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-cursor-dev libpulse-dev libnl-genl-3-dev -y
+# sudo apt install build-essential gcc g++ make libxrandr-dev libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-cursor-dev libpulse-dev libnl-genl-3-dev -y
 sudo apt install wget kitty nitrogen picom scrot zsh rofi network-manager network-manager-gnome pulseaudio nautilus lxappearance papirus-icon-theme blueman dbus-x11 xinit -y
 
 
@@ -16,12 +16,15 @@ sudo apt update
 sudo apt install brave-browser -y
 
 
+# new
+sudo apt install bspwm sxhkd polybar -y
+
 #Building bspwm and sxhkd
-cd /home/$username
-git clone https://github.com/baskerville/bspwm.git
-git clone https://github.com/baskerville/sxhkd.git
-cd bspwm && make && sudo make install
-cd ../sxhkd && make && sudo make install
+# cd /home/$username
+# git clone https://github.com/baskerville/bspwm.git
+# git clone https://github.com/baskerville/sxhkd.git
+# cd bspwm && make && sudo make install
+# cd ../sxhkd && make && sudo make install
 
 # bspwm and sxhkd configs
 cd /home/$username/debian-bspwm
@@ -32,14 +35,14 @@ sudo chmod u+x /home/$username/.config/bspwm/bspwmrc
 
 
 # Building polybar
-cd /home/$username
-git clone --recursive https://github.com/polybar/polybar
-cd polybar
-mkdir build
-cd build
-cmake ..
-make -j$(nproc)
-sudo make install
+# cd /home/$username
+# git clone --recursive https://github.com/polybar/polybar
+# cd polybar
+# mkdir build
+# cd build
+# cmake ..
+# make -j$(nproc)
+# sudo make install
 
 # polybar configs
 cd /home/$username/debian-bspwm
@@ -68,10 +71,10 @@ sudo cp NotoColorEmoji.ttf /usr/share/fonts/
 wget https://github.com/dracula/gtk/archive/master.zip
 sudo apt install unzip -y
 unzip master.zip
-sudo mkdir /usr/share/themes/Dracula
-sudo cp -r gtk-master/* /usr/share/themes/Dracula/
+sudo mkdir -p /usr/share/themes/Dracula
+sudo cp -r /home/$username/debian-bspwm/gtk-master/* /usr/share/themes/Dracula/
+cp -r /home/$username/debian-bspwm/gtk-master/gtk-4.0 .config/
 python3 -c "$(curl -fsSL https://raw.githubusercontent.com/Cornul11/GTK4ThemeAdapter/main/gtk4_theme_adapter.py)"
-cp -r gtk-master/gtk-4.0 .config/
 # cp .config/gtk-3.0/settings.ini .config/gtk-4.0/ 
 rm -fr master.zip gtk-master
 # gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
@@ -93,16 +96,17 @@ sudo apt install ./vscode.deb
 # chrome
 # wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # sudo dpkg -i google-chrome-stable_current_amd64.deb
+# sudo apt install ./google-chrome-stable_current_amd64.deb
 # sudo apt install -f -y
 # sudo apt update
 
 
 # protonvpn
-wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
-echo "c409c819eed60985273e94e575fd5dfd8dd34baef3764fc7356b0f23e25a372c  protonvpn-stable-release_1.0.3_all.deb" | sha256sum --check -
-sudo dpkg -i protonvpn-stable-release_1.0.3_all.deb
-sudo apt update
-sudo apt install protonvpn -y
+# wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
+# echo "c409c819eed60985273e94e575fd5dfd8dd34baef3764fc7356b0f23e25a372c  protonvpn-stable-release_1.0.3_all.deb" | sha256sum --check -
+# sudo apt install ./protonvpn-stable-release_1.0.3_all.deb
+# sudo apt update
+# sudo apt-get install protonvpn-cli -y
 
 
 # touchpad
@@ -116,9 +120,9 @@ cp /home/$username/debian-bspwm/configs/.xinitrc /home/$username/
 
 
 # sreenlock (slock)
-git clone git://git.suckless.org/slock
-cd slock
-sudo make clean install
+# git clone git://git.suckless.org/slock
+# cd slock
+# sudo make clean install
 
 
 # zsh config
