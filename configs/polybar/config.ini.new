@@ -61,16 +61,20 @@ font-6 = "Font Awesome 5 Free:size=38:weight=bold;5"
 
 modules-left = logo bspwm
 modules-center = date
-modules-right = filesystem memory pulseaudio session
+modules-right = filesystem memory pulseaudio session tray ; battery
 
 cursor-click = pointer
-
-tray-position = right
 
 
 [settings]
 screenchange-reload = true
 format-padding = 1
+
+
+[module/tray]
+type = internal/tray
+; format-margin = 1px
+tray-spacing = 1px
 
 
 [module/battery]
@@ -112,10 +116,10 @@ poll-interval = 5
 
 [module/logo]
 type = custom/text
-content = ""
-content-foreground = ${colors.mauve}
-content-background = ${colors.surface1}
-content-font = 6 
+format = ""
+format-foreground = ${colors.mauve}
+format-background = ${colors.surface1}
+format-font = 6 
 click-left = kitty
 
 
@@ -178,10 +182,10 @@ click-right = pactl -- set-sink-volume 0 +10%
 [module/session]
 type = custom/text
 click-left = powermenu
-content = %{T4}%{T-}
-content-background = ${colors.surface1}
-content-foreground = ${colors.red}
-content-padding = 1
+format = %{T4}%{T-}
+format-background = ${colors.surface1}
+format-foreground = ${colors.red}
+format-padding = 1
 
 
 [module/filesystem]
